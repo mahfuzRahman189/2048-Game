@@ -117,7 +117,16 @@ void down()
     rotateclockwise();
 
 }
-
+bool check2048(){
+     for(int i=0;i<4;i++)
+    {
+        for(int j=0;j<4;j++)
+        {
+            if(grid[i][j]==2048)return true;
+        }
+    }
+    return false;
+}
 void right()
 {
     rotateclockwise();
@@ -157,6 +166,11 @@ int main()
             continue;
         }
         randomSpawn();
+        if(check2048())
+        {
+            cout<<"You have won!!"<<endl;
+            return 0;
+        }
         system("cls");
     }
     cout<<"GAME OVER!!"<<endl;
